@@ -48,6 +48,20 @@ def open():
     time.sleep(.5)
     pyautogui.press("enter")
 
+def close():
+    pyautogui.keyDown("alt")
+    pyautogui.hotkey("f4")
+    pyautogui.keyUp("alt")
+
+def write():
+    pyautogui.write(query)
+
+def save():
+    pyautogui.keyDown("ctrl")
+    pyautogui.press("s")
+    pyautogui.keyUp("ctrl")
+    time.sleep(2)
+    pyautogui.press("enter")
 
 # Main Program
 if __name__ == '__main__':
@@ -101,5 +115,14 @@ if __name__ == '__main__':
         elif("open" in query):
             query = query.replace("open","")
             open()
-        elif 'sleep' in query:
+        elif("close" in query):
+            close()
+        elif("write" in query):
+            query = query.replace("write","")
+            write()
+        elif("protect" in query):
+            save()
+        elif("enter" in query):
+            pyautogui.press("enter")
+        elif('sleep' in query,'quit' in query):
             exit(0)
