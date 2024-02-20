@@ -120,9 +120,18 @@ if __name__ == '__main__':
         elif("write" in query):
             query = query.replace("write","")
             write()
-        elif("protect" in query):
-            save()
+        elif("right" in query):
+            query = query.replace("right","")
+            write()
         elif("enter" in query):
             pyautogui.press("enter")
+        elif("protect" in query):
+            save()
+            
         elif('sleep' in query,'quit' in query):
             exit(0)
+        elif("" in query):
+            print("Not understand")
+            speak("Not Understand")
+        else:
+            speak("Not Understand")
