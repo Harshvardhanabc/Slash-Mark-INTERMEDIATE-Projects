@@ -130,8 +130,5 @@ if __name__ == '__main__':
             
         elif('sleep' in query,'quit' in query):
             exit(0)
-        elif("" in query):
-            print("Not understand")
-            speak("Not Understand")
         else:
             speak("Not Understand")
