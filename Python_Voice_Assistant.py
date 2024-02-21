@@ -27,19 +27,18 @@ def speak(audio):
 def take_command():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print("Listening.....")
-        r.pause_threshold = 1
+        r.adjust_for_ambient_noise(source)
+        print("Listening....")
         audio = r.listen(source)
-    try:
-        print("Recognizing...")
-        query = r.recognize_google(audio, language='en-in')
-        print("User said:" +query+ "\n")
-    except Exception as e:
-        print(e)
-        speak("I didnt understand")
-        return "None"
-    return query
-
+        print("Recognizing.....")
+        try:
+            query = r.recognize_google(audio)
+            print("User said: "+query+"\n")
+        except Exception as e:
+            print("Error: "+str(e))
+            return "None"
+        return query
+    
 # It is a common function which is used to open anything in your PC using pyautogui
 def open():
     pyautogui.press("win")
@@ -120,15 +119,9 @@ if __name__ == '__main__':
         elif("write" in query):
             query = query.replace("write","")
             write()
-        elif("right" in query):
-            query = query.replace("right","")
-            write()
         elif("enter" in query):
             pyautogui.press("enter")
         elif("protect" in query):
             save()
-            
-        elif('sleep' in query,'quit' in query):
+        elif('sleep' in query):
             exit(0)
-        else:
-            speak("Not Understand")
