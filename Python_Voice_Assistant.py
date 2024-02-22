@@ -68,7 +68,7 @@ if __name__ == '__main__':
     speak("How can i help you")
     while True:
         query = take_command().lower()
-        if 'wikipedia' in query:
+        if('wikipedia' in query,"who" in query,'what' in query,'when' in query):
             speak("Searching Wikipedia...")
             query = query.replace("wikipedia",'')
             results = wikipedia.summary(query, sentences = 2)
