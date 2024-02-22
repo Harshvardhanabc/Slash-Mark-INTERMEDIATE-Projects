@@ -5,7 +5,7 @@ Python voice assistant using python
 
 Q1 --> wikipedia search what is _____________?
 
-Note - Replace 'what' with any W.H. words in Q1 and Q2
+Note - Replace 'what' with any W.H. words in Q1
 
 Q2 --> who are you?
 
