@@ -140,7 +140,7 @@ if __name__ == '__main__':
         elif("enter" in query):
             pyautogui.press("enter")
         # for save file
-        elif("protect" in query):
+        elif("protect" in query,"save" in query):
             save()
         # close terminal
         elif('sleep' in query):
